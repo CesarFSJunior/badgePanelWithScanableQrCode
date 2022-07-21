@@ -1,0 +1,23 @@
+<div class="card">
+    <form action="/qrCode" method="get" id="formCard">
+        <label for="name">Name: </label><br>
+            <input type="text" name="name" id="name"><br>
+        <label for="email">email: </label><br>
+            <input type="email" name="email" id="email"><br>
+        {{!-- <label for="twitter">Twitter Account (don't need use @ before your user name): </label><br>
+            <input type="text" name="twitter" id="twitter"><br> --}}
+        {{!-- <label for="github">Github account: </label><br>
+            <input type="text" name="github" id="github"><br> --}}
+    </form>
+        <div id="moreMenu">
+            <div class="box" onclick="openSocialMediasMenu()">
+                <div id="more"></div>
+            </div>
+        </div>
+        <div id="buttons">
+            <button type="reset" form="formCard">Reset</button>
+            <button type="submit" form="formCard">Submit</button>
+        </div>
+</div>
+<link rel="stylesheet" href="index.css">
+<script src="index.js"></script>

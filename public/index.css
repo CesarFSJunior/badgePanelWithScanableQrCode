@@ -1,0 +1,141 @@
+.box {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#more {
+    background: blue;
+    height: 20px;
+    width: 4px;
+    position: relative;
+    border-radius: 2px;
+    transition: 1s;
+}
+
+#more::before {
+    content: '';
+    position: absolute;
+    display: block;
+    background: blue;
+    width: 20px;
+    height: 4px;
+    border-radius: 2px;
+    transform: translate(-8px, 8px);
+    transition: 1s;
+}
+
+#more::after {
+    content: '';
+    position: absolute;
+    display: block;
+    background: blue;
+    width: 14px;
+    height: 4px;
+    border-radius: 2px;
+    opacity: 0;
+}
+
+#more.check {
+    transform: rotate(-90deg);
+}
+
+#more.check::before {
+    transform: translate(-1px, 12px) rotate(-45deg);
+    width: 14px;
+}
+
+#more.check::after {
+    transform: translate( -9px, 12px) rotate(45deg);
+    opacity: 1;
+}
+
+#moreMenu {
+    padding: 0 10% 0 10%;
+    width: 80%;
+    max-width: calc(413px + 20%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 30px;
+}
+
+#SocialMediaOptions {
+    outline: none;
+    height: 30px;
+    width: 65%;
+    border-radius: 10px;
+    border: none;
+    border-color: none;
+    color: #000000;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+#buttons {
+    width: 80%;
+    padding: 0 10%;
+    display: flex;
+    justify-content: space-around;
+    max-width: calc(413px + 20%);
+
+}
+
+button {
+    height: 40px;
+    width: 70px;
+    border-radius: 25px;
+    border: none;
+    background: #ffffff;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 400;
+    transition: 1s;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 2px 2px 0px 3px rgba(0, 0, 0, 0.37);
+}
+
+
+#addSocialMedia {
+    height: 30px;
+    width: 50px;
+    border-radius: 25px;
+    border: none;
+    background: #ffffff;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 400;
+    transition: 1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#addSocialMedia:hover {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 2px 2px 0px 3px rgba(0, 0, 0, 0.37);
+}
+
+.remove {
+    height: 24px;
+    margin-top: 6px;
+    background: rgb(255, 31, 31);
+}
+
+@media (max-width: 600px) {
+    #SocialMediaOptions {
+        width: auto;
+    }
+}

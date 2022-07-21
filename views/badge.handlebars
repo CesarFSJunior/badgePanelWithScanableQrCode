@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="badge">
+        {{#each info}}
+            {{#if name}}
+                <h1 class="item">{{name}}</h1>
+            {{/if}}
+            {{#if email}}
+                <p class="item">{{email}}</p>
+            {{/if}}
+            {{#if twitter}}
+                <div class="twitter item">
+                    <i class="devicon-twitter-original colored"></i>
+                    <p>{{twitter}}</p>
+                </div>
+            {{/if}}
+            {{#if github}}
+                <div class="github item">
+                    <i class="devicon-github-original colored"></i>
+                    <p>{{github}}</p>
+                </div>
+            {{/if}}
+        {{/each}}
+        <a href="/qrcode{{url}}"><img src="/qrcodeGen{{url}}" alt=""></a>
+    </div>
+</div>
