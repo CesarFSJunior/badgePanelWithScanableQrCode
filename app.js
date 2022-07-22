@@ -87,11 +87,22 @@ app.get('/badge', (req, res) => {
         info.push({twitter: myURL.searchParams.get('twitter')})
     }
 
+    if(myURL.searchParams.get('instagram')) {
+        info.push({instagram: myURL.searchParams.get('instagram')})
+    }
+
+    if(myURL.searchParams.get('snapchat')) {
+        info.push({snapchat: myURL.searchParams.get('snapchat')})
+    }
+
     if(myURL.searchParams.get('github')) {
         info.push({github: myURL.searchParams.get('github')})
     }
 
-    console.log(info)
+    if(myURL.searchParams.get('linkedin')) {
+        info.push({linkedin: myURL.searchParams.get('linkedin')})
+    }
+
     res.render('badge', {info: info, url: `${myURL.search}`})
 })
 

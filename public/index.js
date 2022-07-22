@@ -1,14 +1,14 @@
-const more = document.querySelector('#more')
 const moreMenu = document.querySelector('#moreMenu')
 const form = document.querySelector('#formCard')
 const socialMediasOptions = ["twitter", "instagram", "snapchat", "github", "linkedin"]
 const socialMediasOptionsLabels = ["Twitter Account (don't need use @ before your user name):", "Instagram account:", "Snapchat account:", "Github account:", "Linkedin account:"]
+const box = document.querySelector('.box')
 
 
 function openSocialMediasMenu() {
-    more.classList.toggle('check')
+    box.classList.toggle('check')
 
-    if (more.classList == 'check') {
+    if (box.classList == 'box check') {
         const menu = document.createElement('select')
         const add = document.createElement('div')
         menu.setAttribute('id', 'SocialMediaOptions')
@@ -45,10 +45,12 @@ function addSocialMedia() {
             const createLabel = document.createElement('label')
             createLabel.innerHTML = `${socialMediasOptionsLabels[i]}`
             createLabel.setAttribute('for', `${SocialMediaOptions.value}`)
+            const createBr = document.createElement('br')
             const createInput = document.createElement('input')
             createInput.setAttribute('type', 'text')
             createInput.setAttribute('name', `${SocialMediaOptions.value}`)
             createInput.setAttribute('id', `${SocialMediaOptions.value}`)
+            const createBrTwo = document.createElement('br')
             const createDelButton = document.createElement('button')
             createDelButton.innerHTML = "remove"
             createDelButton.setAttribute('onclick', `removeSocialMedia('${SocialMediaOptions.value}')`)
@@ -57,11 +59,19 @@ function addSocialMedia() {
 
             form.appendChild(createDiv)
             createDiv.appendChild(createLabel)
+            createDiv.appendChild(createBr)
             createDiv.appendChild(createInput)
+            createDiv.appendChild(createBrTwo)
             createDiv.appendChild(createDelButton)
 
             openSocialMediasMenu()
-            // socialMediasOptions = []
+            socialMediasOptions.splice(i, 1)
+            socialMediasOptionsLabels.splice(i, 1)
+            if (socialMediasOptions.length == 0) {
+                box.children[0].remove()
+                box.style.height = "0px"
+                box.parentNode.style.height = "0px"
+            }
 
         }
     }
@@ -71,6 +81,36 @@ function addSocialMedia() {
 function removeSocialMedia(params) {
     const removeObject = document.querySelector(`#${params}`)
     removeObject.parentNode.remove()
-    console.log(removeObject.parentNode)
+
+    if (socialMediasOptions.length == 0) {
+
+        const createDiv = document.createElement('div')
+        createDiv.setAttribute('id', "more")
+
+        box.appendChild(createDiv)
+
+    }
+    switch (params) {
+        case "twitter":
+            socialMediasOptions.splice(0, 0, "twitter")
+            socialMediasOptionsLabels.splice(0, 0, "Twitter Account (don't need use @ before your user name")
+            break;
+        case "instagram":
+            socialMediasOptions.splice(1, 0, "instagram")
+            socialMediasOptionsLabels.splice(1, 0, "Instagram account:")
+            break;
+        case "snapchat":
+            socialMediasOptions.splice(2, 0, "snapchat")
+            socialMediasOptionsLabels.splice(2, 0, "Snapchat account:")
+            break;
+        case "github":
+            socialMediasOptions.splice(3, 0, "github")
+            socialMediasOptionsLabels.splice(3, 0, "Github account:")
+            break;
+        case "linkedin":
+            socialMediasOptions.splice(4, 0, "linkedin")
+            socialMediasOptionsLabels.splice(4, 0, "Linkedin account:")
+            break;
+    }
 
 }

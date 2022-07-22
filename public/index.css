@@ -38,16 +38,16 @@
     opacity: 0;
 }
 
-#more.check {
+.box.check #more {
     transform: rotate(-90deg);
 }
 
-#more.check::before {
+.box.check #more::before {
     transform: translate(-1px, 12px) rotate(-45deg);
     width: 14px;
 }
 
-#more.check::after {
+.box.check #more::after {
     transform: translate( -9px, 12px) rotate(45deg);
     opacity: 1;
 }

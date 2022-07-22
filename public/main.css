@@ -17,6 +17,18 @@ main, .card {
     height: 100vh;
 }
 
+main {
+    flex-direction: column;
+    gap: 20px;
+}
+
+#printButton {
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+}
+
 .card {
     height: 80vh;
     width: 70vw;
@@ -34,7 +46,9 @@ form {
 }
 
 form input {
-    width: 100%;
+    width: 405px;
+    border-radius: 6px;
+    border: none;
 }
 
 .badge {
@@ -62,10 +76,26 @@ form input {
     width: 120px;
 }
 
-.twitter i {
+.twitter i, .github i, .linkedin i {
     margin-right: 10px;
 }
 
-.github i {
-    margin-right: 10px;
+@media (max-width: 730px) {
+    form {
+        width: 100%;
+    }
+
+    form input {
+        width: 100%;
+    }
+}
+
+@media print {
+    #printButton {
+        display: none;
+    }
+
+    .card {
+        background: rgba(0, 0, 0, 0);
+    }
 }
